@@ -14,5 +14,11 @@ public class Main {
         if (jackSparrow.equals("Another object")) {
             System.out.println("Strange things are afoot.");
         }
+
+        Song song1 = new Song("Ismo Leikola", "Pendolino", 194);
+Song song2 = new Song("Ismo Leikola", "Pendolino", 194);
+if(song1.equals(song2)) {
+    System.out.println("Same!");
+}
     }
 }
