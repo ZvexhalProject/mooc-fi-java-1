@@ -1,4 +1,12 @@
 Pancake dough
+15
+milk
+
+Meatballs
+10
+ground meat
+
+Pancake dough
 60
 milk
 egg

@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class LiquidContainers2 {
@@ -38,9 +37,6 @@ public class LiquidContainers2 {
                 amountContainer2.remove(Integer.valueOf(inputSplit[1]));
                 continue;
             }
-
-
         }
     }
-
 }
