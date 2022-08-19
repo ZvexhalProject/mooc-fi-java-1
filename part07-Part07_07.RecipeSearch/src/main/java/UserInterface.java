@@ -18,6 +18,16 @@ public class UserInterface {
 
     }
 
+    public void printCommands() {
+        System.out.println();
+        System.out.println("Commands:");
+        System.out.println("list - lists the recipe");
+        System.out.println("stop - stops the program");
+        System.out.println("find name - searches recipes by name");
+        System.out.println("find cooking time - searches recipes by cooking time");
+        System.out.println("find cooking time - searches recipes by ingredient");
+    }
+
     public void start() {
         while (fileScanner.hasNextLine()) {
             String recipeName = fileScanner.nextLine();
@@ -35,69 +45,41 @@ public class UserInterface {
             this.recipes.add(newRecipe);
         }
 
-        System.out.println();
-        System.out.println("Commands:");
-        System.out.println("list - lists the recipe");
-        System.out.println("stop - stops the program");
-        System.out.println("find name - searches recipes by name");
-        System.out.println("find cooking time - searches recipes by cooking time");
-        System.out.println("find cooking time - searches recipes by ingredient");
 
-        Scanner inputScanner = new Scanner(System.in);
-        while (true) {
 
-            System.out.println("\nEnter command:");
+    }
 
-            String input = inputScanner.nextLine();
-            if (input.equals("stop")) {
-                break;
-            }
-            if (input.equals("list")) {
-                System.out.println();
-                for (Recipe recipe : recipes) {
+    public void findIngredient(String searchIngredient) {
+        for (Recipe recipe : recipes) {
+            for (String recipeIngredient : recipe.getIngredients()) {
+                if (searchIngredient.contains(recipeIngredient)) {
                     System.out.println(recipe);
                 }
             }
+        }
+    }
 
-            if (input.equals("find name")) {
-                System.out.println("\nSearched word:");
-                String inputSearch = inputScanner.nextLine();
-
-                System.out.println("\nRecipes:");
-                for (Recipe recipe : recipes) {
-                    if (recipe.getName().contains(inputSearch)) {
-                        System.out.println(recipe);
-                    }
-                }
-            }
-
-            if (input.equals("find cooking time")) {
-                System.out.println("\nMax cooking time:");
-                int maxCookingDuration = Integer.valueOf(inputScanner.nextLine());
-
-                System.out.println("\nRecipes:");
-                for (Recipe recipe : recipes) {
-                    if (recipe.getCookingTime() <= maxCookingDuration) {
-                        System.out.println(recipe);
-                    }
-                }
-            }
-
-            if (input.equals("find ingredient")) {
-                System.out.println("\nIngredient");
-                String searchIngredient = inputScanner.nextLine();
-
-                System.out.println("\nRecipes:");
-                for (Recipe recipe : recipes) {
-                    for(String recipeIngredient:recipe.getIngredients()){
-                        if(searchIngredient.contains(recipeIngredient)){
-                            System.out.println(recipe);
-                        }
-                    }
-                }
+    public void findCookingTime(int maxCookingDuration) {
+        for (Recipe recipe : recipes) {
+            if (recipe.getCookingTime() <= maxCookingDuration) {
+                System.out.println(recipe);
             }
         }
+    }
 
+    public void findRecipes(String inputSearch) {
+        for (Recipe recipe : recipes) {
+            if (recipe.getName().contains(inputSearch)) {
+                System.out.println(recipe);
+            }
+        }
+    }
+
+    public void listRecipes() {
+        System.out.println();
+        for (Recipe recipe : recipes) {
+            System.out.println(recipe);
+        }
     }
 
 }

@@ -1,6 +1,7 @@
 
 import fi.helsinki.cs.tmc.edutestutils.MockStdio;
 import fi.helsinki.cs.tmc.edutestutils.Points;
+
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.Arrays;
